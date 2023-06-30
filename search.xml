@@ -5425,7 +5425,7 @@
 </ol>
 <h2 id="查看-MySQL-服务并启动"><a href="#查看-MySQL-服务并启动" class="headerlink" title="查看 MySQL 服务并启动"></a>查看 MySQL 服务并启动</h2><ol>
 <li>此电脑 –右键–&gt; 管理 —-&gt; 服务和应用程序 —-&gt; MySQL</li>
-<li>使用命令 net start msyql</li>
+<li>使用 cmd 命令 net start 服务名</li>
 </ol>
 <h2 id="登录-MySQL-及如何使用"><a href="#登录-MySQL-及如何使用" class="headerlink" title="登录 MySQL 及如何使用"></a>登录 MySQL 及如何使用</h2><ol>
 <li>登录命令 msyql -u root -p 密码</li>
@@ -5433,7 +5433,7 @@
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><table>
 <thead>
 <tr>
-<th align="center">命令</th>
+<th align="center">命令（不区分大小写）</th>
 <th align="center">功能</th>
 </tr>
 </thead>
@@ -5461,12 +5461,28 @@
 <td align="center">show tables</td>
 <td align="center">查看当前数据库全部表</td>
 </tr>
+<tr>
+<td align="center">desc 表名</td>
+<td align="center">查看表结构</td>
+</tr>
 </tbody></table>
 <h2 id="数据库的基本单元"><a href="#数据库的基本单元" class="headerlink" title="数据库的基本单元"></a>数据库的基本单元</h2><ol>
 <li>数据库的基本单元是表：table</li>
 <li>一张表由行（row）和列（column）组成，每一行称记录，每一列称字段</li>
 </ol>
-]]></content>
+<h2 id="SQL-语句的分类"><a href="#SQL-语句的分类" class="headerlink" title="SQL 语句的分类"></a>SQL 语句的分类</h2><ol>
+<li>DQL：数据查询语言，查（select）</li>
+<li>DML：数据操作语言，增（insert）、删（delete）、改（update）</li>
+<li>DDL：数据定义语言，操作表的结构，如建表（create）、删除表（drop）、修改表（alter）……</li>
+<li>TCL：事务控制语言，事务提交（commit）、事务回滚（rollback）</li>
+<li>DCL：数据控制语言，授权（grant）、撤销权限（rovoke）……</li>
+</ol>
+<h2 id="数据导入"><a href="#数据导入" class="headerlink" title="数据导入"></a>数据导入</h2><p><a href="https://gitee.com/dwarfeng/hibernate-test/blob/master/bjpowernode.sql">练习数据下载</a></p>
+<ol>
+<li>命令：source sql文件路径</li>
+<li>dept（部门表）、emp（员工表）、salgrade（工资等级表）</li>
+</ol>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">mysql&gt; desc dept;</span><br><span class="line">+<span class="literal">--------</span>+<span class="literal">-------------</span>+<span class="literal">------</span>+<span class="literal">-----</span>+<span class="literal">---------</span>+<span class="literal">-------</span>+</span><br><span class="line">| Field  | <span class="built_in">Type</span>        | Null | Key | Default | Extra |</span><br><span class="line">+<span class="literal">--------</span>+<span class="literal">-------------</span>+<span class="literal">------</span>+<span class="literal">-----</span>+<span class="literal">---------</span>+<span class="literal">-------</span>+</span><br><span class="line">| deptno | int         | NO   | PRI | NULL    |       |</span><br><span class="line">| dname  | varchar(<span class="number">14</span>) | YES  |     | NULL    |       |</span><br><span class="line">| loc    | varchar(<span class="number">13</span>) | YES  |     | NULL    |       |</span><br><span class="line">+<span class="literal">--------</span>+<span class="literal">-------------</span>+<span class="literal">------</span>+<span class="literal">-----</span>+<span class="literal">---------</span>+<span class="literal">-------</span>+</span><br><span class="line"><span class="number">3</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; desc emp;</span><br><span class="line">+<span class="literal">----------</span>+<span class="literal">-------------</span>+<span class="literal">------</span>+<span class="literal">-----</span>+<span class="literal">---------</span>+<span class="literal">-------</span>+</span><br><span class="line">| Field    | <span class="built_in">Type</span>        | Null | Key | Default | Extra |</span><br><span class="line">+<span class="literal">----------</span>+<span class="literal">-------------</span>+<span class="literal">------</span>+<span class="literal">-----</span>+<span class="literal">---------</span>+<span class="literal">-------</span>+</span><br><span class="line">| empno    | int         | NO   | PRI | NULL    |       |</span><br><span class="line">| ename    | varchar(<span class="number">10</span>) | YES  |     | NULL    |       |</span><br><span class="line">| job      | varchar(<span class="number">9</span>)  | YES  |     | NULL    |       |</span><br><span class="line">| mgr      | int         | YES  |     | NULL    |       |</span><br><span class="line">| hiredate | date        | YES  |     | NULL    |       |</span><br><span class="line">| <span class="built_in">sal</span>      | double(<span class="number">7</span>,<span class="number">2</span>) | YES  |     | NULL    |       |</span><br><span class="line">| comm     | double(<span class="number">7</span>,<span class="number">2</span>) | YES  |     | NULL    |       |</span><br><span class="line">| deptno   | int         | YES  |     | NULL    |       |</span><br><span class="line">+<span class="literal">----------</span>+<span class="literal">-------------</span>+<span class="literal">------</span>+<span class="literal">-----</span>+<span class="literal">---------</span>+<span class="literal">-------</span>+</span><br><span class="line"><span class="number">8</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0.00</span> sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; desc salgrade;</span><br><span class="line">+<span class="literal">-------</span>+<span class="literal">------</span>+<span class="literal">------</span>+<span class="literal">-----</span>+<span class="literal">---------</span>+<span class="literal">-------</span>+</span><br><span class="line">| Field | <span class="built_in">Type</span> | Null | Key | Default | Extra |</span><br><span class="line">+<span class="literal">-------</span>+<span class="literal">------</span>+<span class="literal">------</span>+<span class="literal">-----</span>+<span class="literal">---------</span>+<span class="literal">-------</span>+</span><br><span class="line">| grade | int  | YES  |     | NULL    |       |</span><br><span class="line">| losal | int  | YES  |     | NULL    |       |</span><br><span class="line">| hisal | int  | YES  |     | NULL    |       |</span><br><span class="line">+<span class="literal">-------</span>+<span class="literal">------</span>+<span class="literal">------</span>+<span class="literal">-----</span>+<span class="literal">---------</span>+<span class="literal">-------</span>+</span><br><span class="line"><span class="number">3</span> rows <span class="keyword">in</span> <span class="built_in">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title></title>
