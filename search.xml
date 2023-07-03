@@ -2907,7 +2907,32 @@ min|最小值
 </code></pre>
 <h1 id="day-02"><a href="#day-02" class="headerlink" title="day 02"></a>day 02</h1><h2 id="distinct-去除重复记录"><a href="#distinct-去除重复记录" class="headerlink" title="distinct 去除重复记录"></a>distinct 去除重复记录</h2><pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="keyword">distinct</span> job <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="operator">|</span> job       <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="operator">|</span> CLERK     <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SALESMAN  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MANAGER   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ANALYST   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> PRESIDENT <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="number">5</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
 </code></pre>
-<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2>]]></content>
+<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2><blockquote>
+<p>两个及两个以上的表联合查询</p>
+</blockquote>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>按照年代分类<ul>
+<li>SQL92</li>
+<li>SQL99</li>
+</ul>
+</li>
+<li>连接方式<ul>
+<li>内连接<ul>
+<li>等值连接</li>
+<li>非等值连接</li>
+<li>自连接</li>
+</ul>
+</li>
+<li>外连接<ul>
+<li>左连接</li>
+<li>右连接</li>
+</ul>
+</li>
+<li>全连接</li>
+</ul>
+</li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title></title>
