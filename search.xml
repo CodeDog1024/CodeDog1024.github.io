@@ -2745,7 +2745,7 @@
   <entry>
     <title>MySQL 学习笔记</title>
     <url>/2023/06/27/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="day-01"><a href="#day-01" class="headerlink" title="day 01"></a>day 01</h1><h2 id="什么是数据库？什么是数据库管理系统？什么是-SQL-？"><a href="#什么是数据库？什么是数据库管理系统？什么是-SQL-？" class="headerlink" title="什么是数据库？什么是数据库管理系统？什么是 SQL ？"></a>什么是数据库？什么是数据库管理系统？什么是 SQL ？</h2><ol>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="day-01"><a href="#day-01" class="headerlink" title="day 01"></a>day 01</h1><h2 id="什么是数据库？什么是数据库管理系统？什么是-SQL-？"><a href="#什么是数据库？什么是数据库管理系统？什么是-SQL-？" class="headerlink" title="什么是数据库？什么是数据库管理系统？什么是 SQL ？"></a>什么是数据库？什么是数据库管理系统？什么是 SQL ？</h2><ol>
 <li>数据库：DataBase 简称 DB，按照一定格式存储数据的一些文件的组合。这些文件中存储了特定格式的数据</li>
 <li>数据库管理系统：DataBaseManagement 简称 DBMS，用来管理数据库中的数据（增删改查）。常见数据库管理系统：MySQL、Oracle、MS SqlServer、DB2、sybase……</li>
 <li>SQL：结构化查询语句，程序员通过编写 SQL 语句，交给 DBMS 执行，一次来完成数据库中数据的增删改查。（在任何 DBMS 中通用 ）</li>
@@ -2905,7 +2905,9 @@ min|最小值
 
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 字段<span class="number">1</span>、字段<span class="number">2</span>、字段<span class="number">3</span> <span class="keyword">as</span> 别名、分组函数......</span><br><span class="line"><span class="keyword">from</span> 表名</span><br><span class="line"><span class="keyword">where</span> 条件</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 分组字段</span><br><span class="line"><span class="keyword">having</span> 条件</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> 排序字段 <span class="keyword">desc</span><span class="operator">/</span><span class="keyword">asc</span>;</span><br></pre></td></tr></table></figure>
 </code></pre>
-<h1 id="day-02"><a href="#day-02" class="headerlink" title="day 02"></a>day 02</h1>]]></content>
+<h1 id="day-02"><a href="#day-02" class="headerlink" title="day 02"></a>day 02</h1><h2 id="distinct-去除重复记录"><a href="#distinct-去除重复记录" class="headerlink" title="distinct 去除重复记录"></a>distinct 去除重复记录</h2><pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">select</span> <span class="keyword">distinct</span> job <span class="keyword">from</span> emp;</span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="operator">|</span> job       <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="operator">|</span> CLERK     <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> SALESMAN  <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> MANAGER   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> ANALYST   <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> PRESIDENT <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-----------+</span></span><br><span class="line"><span class="number">5</span> <span class="keyword">rows</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h2>]]></content>
   </entry>
   <entry>
     <title></title>
