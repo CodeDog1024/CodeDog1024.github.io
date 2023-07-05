@@ -1,0 +1,592 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux 学习笔记 | CodeDog的博客</title><meta name="author" content="CodeDog"><meta name="copyright" content="CodeDog"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux 介绍 Linux 开源、免费的操作系统 常见操作系统 windows、ISO、Android、MacOS、Linux、Unix 吉祥物：企鹅 Tux Linux之父：Linux Torvalds 发行版：Ubuntu、RedHat、CentOS、Debain、Fedora、SuSE、OpenSUSE  Linux应用领域 个人桌面 服务器（主要） 嵌入式  Linux 和 Unix 区">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 学习笔记">
+<meta property="og:url" content="https://codedog1024.github.io/2023/07/05/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="CodeDog的博客">
+<meta property="og:description" content="Linux 介绍 Linux 开源、免费的操作系统 常见操作系统 windows、ISO、Android、MacOS、Linux、Unix 吉祥物：企鹅 Tux Linux之父：Linux Torvalds 发行版：Ubuntu、RedHat、CentOS、Debain、Fedora、SuSE、OpenSUSE  Linux应用领域 个人桌面 服务器（主要） 嵌入式  Linux 和 Unix 区">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://codedog1024.github.io/img/bg9.jpg">
+<meta property="article:published_time" content="2023-07-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-07-05T15:11:29.392Z">
+<meta property="article:author" content="CodeDog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://codedog1024.github.io/img/bg9.jpg"><link rel="shortcut icon" href="/./img/favicon.png"><link rel="canonical" href="https://codedog1024.github.io/2023/07/05/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":0,"languages":{"author":"作者: CodeDog","link":"链接: ","source":"来源: CodeDog的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux 学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-05 23:11:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/bg9.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="CodeDog的博客"><span class="site-name">CodeDog的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux 学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-04T16:00:00.000Z" title="发表于 2023-07-05 00:00:00">2023-07-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-05T15:11:29.392Z" title="更新于 2023-07-05 23:11:29">2023-07-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux 学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux-介绍"><a href="#Linux-介绍" class="headerlink" title="Linux 介绍"></a>Linux 介绍</h1><ol>
+<li>Linux</li>
+<li>开源、免费的操作系统</li>
+<li>常见操作系统 windows、ISO、Android、MacOS、Linux、Unix</li>
+<li>吉祥物：企鹅 Tux</li>
+<li>Linux之父：Linux Torvalds</li>
+<li>发行版：<code>Ubuntu、RedHat、CentOS、</code>Debain、Fedora、SuSE、OpenSUSE</li>
+</ol>
+<h1 id="Linux应用领域"><a href="#Linux应用领域" class="headerlink" title="Linux应用领域"></a>Linux应用领域</h1><ol>
+<li>个人桌面</li>
+<li>服务器（主要）</li>
+<li>嵌入式</li>
+</ol>
+<h1 id="Linux-和-Unix-区别"><a href="#Linux-和-Unix-区别" class="headerlink" title="Linux 和 Unix 区别"></a>Linux 和 Unix 区别</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/707.html">参考文档</a></li>
+</ul>
+<h1 id="安装-VMware-和-CentOS"><a href="#安装-VMware-和-CentOS" class="headerlink" title="安装 VMware 和 CentOS"></a>安装 VMware 和 CentOS</h1><ul>
+<li>略</li>
+</ul>
+<h1 id="网络连接的三种模式"><a href="#网络连接的三种模式" class="headerlink" title="网络连接的三种模式"></a>网络连接的三种模式</h1><ol>
+<li>桥接模式：虚拟机可以和外部系统通信，但是容易IP冲突</li>
+<li>NAT：网络地址转换模式，虚拟机可以和外部系统通信</li>
+<li>主机模式：独立的主机</li>
+</ol>
+<h1 id="虚拟机克隆"><a href="#虚拟机克隆" class="headerlink" title="虚拟机克隆"></a>虚拟机克隆</h1><blockquote>
+<p>无需再次创建新的虚拟机，只需要对当前虚拟机进行克隆即可</p>
+</blockquote>
+<ol>
+<li>直接拷贝虚拟机系统文件</li>
+<li>使用 VMware 的克隆操作（需要先关闭 Linux 系统）</li>
+</ol>
+<h1 id="虚拟机快照"><a href="#虚拟机快照" class="headerlink" title="虚拟机快照"></a>虚拟机快照</h1><blockquote>
+<p>保存当前虚拟机的状态，当虚拟机出现问题时可以回退到指定状态</p>
+</blockquote>
+<h1 id="虚拟机迁移和删除"><a href="#虚拟机迁移和删除" class="headerlink" title="虚拟机迁移和删除"></a>虚拟机迁移和删除</h1><blockquote>
+<p>虚拟机本质就是一个文件夹，当作文件夹去操作即可</p>
+</blockquote>
+<h1 id="Linux目录结构"><a href="#Linux目录结构" class="headerlink" title="Linux目录结构"></a>Linux目录结构</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><ul>
+<li>根目录：“&#x2F;”</li>
+<li>树状文件</li>
+<li>一切皆文件</li>
+</ul>
+<h2 id="常用目录"><a href="#常用目录" class="headerlink" title="常用目录"></a>常用目录</h2><ul>
+<li>&#x2F;bin：常用指令</li>
+<li>&#x2F;sbin：管理员使用的系统管理程序</li>
+<li>&#x2F;home：普通用户主目录</li>
+<li>&#x2F;root：管理员主目录</li>
+<li>&#x2F;etc：配置文件</li>
+<li>&#x2F;usr：应用程序文件</li>
+<li>&#x2F;boot：启动 Linux 的核心文件</li>
+<li>&#x2F;proc：虚拟目录，系统内存的映射</li>
+<li>&#x2F;srv：服务数据</li>
+<li>&#x2F;sys：</li>
+<li>&#x2F;temp：临时文件</li>
+<li>&#x2F;dev：设备文件</li>
+<li>&#x2F;mnt：外部文件存储设备</li>
+<li>&#x2F;opt：额外软件安装目录</li>
+</ul>
+<h1 id="远程登陆-Linux"><a href="#远程登陆-Linux" class="headerlink" title="远程登陆 Linux"></a>远程登陆 Linux</h1><ul>
+<li>Linux 通常是架设在公网上的，而不是本地，所以需要进行远程登陆</li>
+</ul>
+<h2 id="远程连接工具-Xshell-Xftp"><a href="#远程连接工具-Xshell-Xftp" class="headerlink" title="远程连接工具 Xshell Xftp"></a>远程连接工具 Xshell Xftp</h2><ul>
+<li><p><a href="">下载地址</a></p>
+</li>
+<li><p>Xshell：远程对主机进行操作</p>
+</li>
+<li><p>Xftp：远程对主机进行文件的上传和下载</p>
+</li>
+</ul>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ul>
+<li>略</li>
+</ul>
+<h1 id="vi-和-vim-文本编辑器"><a href="#vi-和-vim-文本编辑器" class="headerlink" title="vi 和 vim 文本编辑器"></a>vi 和 vim 文本编辑器</h1><h2 id="三种模式"><a href="#三种模式" class="headerlink" title="三种模式"></a>三种模式</h2><ul>
+<li>一般模式</li>
+<li>插入模式</li>
+<li>命令行模式</li>
+</ul>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhang_yu_ling/article/details/103777714">常用命令</a></p>
+<table>
+<thead>
+<tr>
+<th align="center">代码</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">yy</td>
+<td align="center">复制光标所在当前行</td>
+</tr>
+<tr>
+<td align="center">p</td>
+<td align="center">粘贴</td>
+</tr>
+<tr>
+<td align="center">dd</td>
+<td align="center">删除光标所在当前行</td>
+</tr>
+<tr>
+<td align="center">&#x2F;关键词</td>
+<td align="center">查找关键词</td>
+</tr>
+<tr>
+<td align="center">:set nu</td>
+<td align="center">开启文件行号显示</td>
+</tr>
+<tr>
+<td align="center">:set nonu</td>
+<td align="center">关闭文件行号显示</td>
+</tr>
+<tr>
+<td align="center">:wq</td>
+<td align="center">关闭并保存</td>
+</tr>
+<tr>
+<td align="center">:q</td>
+<td align="center">关闭</td>
+</tr>
+<tr>
+<td align="center">命令!</td>
+<td align="center">强制执行</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">光标移动到文档末尾</td>
+</tr>
+<tr>
+<td align="center">gg</td>
+<td align="center">光标移动到文档首部</td>
+</tr>
+<tr>
+<td align="center">u</td>
+<td align="center">撤销</td>
+</tr>
+</tbody></table>
+<h1 id="Linux-用户命令"><a href="#Linux-用户命令" class="headerlink" title="Linux 用户命令"></a>Linux 用户命令</h1><table>
+<thead>
+<tr>
+<th align="center">代码</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">shutdow -h now</td>
+<td align="center">现在关机</td>
+</tr>
+<tr>
+<td align="center">shutdow -h 1</td>
+<td align="center">一分钟之后关机</td>
+</tr>
+<tr>
+<td align="center">shutdow -r now</td>
+<td align="center">现在重启</td>
+</tr>
+<tr>
+<td align="center">halt</td>
+<td align="center">关机，同上</td>
+</tr>
+<tr>
+<td align="center">reboot</td>
+<td align="center">重启，同上</td>
+</tr>
+<tr>
+<td align="center">sync</td>
+<td align="center">把内存中的数据同步到磁盘（关机重启前必须执行一次，防止数据丢失）</td>
+</tr>
+<tr>
+<td align="center">su - 用户名</td>
+<td align="center">切换用户</td>
+</tr>
+<tr>
+<td align="center">logout</td>
+<td align="center">退出当前账号登陆</td>
+</tr>
+</tbody></table>
+<h1 id="Linux-用户管理命令-管理员模式下"><a href="#Linux-用户管理命令-管理员模式下" class="headerlink" title="Linux 用户管理命令(管理员模式下)"></a>Linux 用户管理命令(管理员模式下)</h1><table>
+<thead>
+<tr>
+<th align="center">代码</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">useradd 用户名</td>
+<td align="center">添加用户（自动在&#x2F;homt文件夹下创建用户文件夹）</td>
+</tr>
+<tr>
+<td align="center">useradd -d 指定文件夹 用户名</td>
+<td align="center">添加用户（指定在&#x2F;homt文件夹下的用户文件夹）</td>
+</tr>
+<tr>
+<td align="center">passwd 用户名</td>
+<td align="center">修改用户名</td>
+</tr>
+<tr>
+<td align="center">userdel 用户名</td>
+<td align="center">删除用户（但是会保留&#x2F;home下的用户文件夹）</td>
+</tr>
+<tr>
+<td align="center">userdel -r 用户名</td>
+<td align="center">删除用户（不会保留&#x2F;home下的用户文件夹）</td>
+</tr>
+<tr>
+<td align="center">id 用户名</td>
+<td align="center">查询用户信息</td>
+</tr>
+<tr>
+<td align="center">su - 用户名</td>
+<td align="center">切换用户（低权限切换高权限需要输入密码）</td>
+</tr>
+<tr>
+<td align="center">who am i</td>
+<td align="center">查看当前登录的用户</td>
+</tr>
+</tbody></table>
+<h1 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h1><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">groupadd 组名</td>
+<td align="center">添加组</td>
+</tr>
+<tr>
+<td align="center">groupdel 组名</td>
+<td align="center">删除组</td>
+</tr>
+<tr>
+<td align="center">useradd -g 组名 用户名</td>
+<td align="center">添加用户时指定用户组</td>
+</tr>
+<tr>
+<td align="center">usermod -g 组名 用户名</td>
+<td align="center">切换用户组</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 添加组</span><br><span class="line">[root@localhost home]# groupadd wudang</span><br><span class="line">// 删除组</span><br><span class="line">[root@localhost home]# groupdel wudang</span><br><span class="line">// 添加用户时指定组</span><br><span class="line">[root@localhost home]# useradd -g wudang zhangwuji</span><br><span class="line">// 查看用户信息</span><br><span class="line">[root@localhost home]# id zhangwuji </span><br><span class="line">uid=1001(zhangwuji) gid=1001(wudang) 组=1001(wudang)</span><br><span class="line">// 创建新的组</span><br><span class="line">[root@localhost home]# groupadd mojiao</span><br><span class="line">// 修改用户组</span><br><span class="line">[root@localhost home]# usermod -g mojiao zhangwuji</span><br><span class="line">// 再次查看用户信息</span><br><span class="line">[root@localhost home]# id zhangwuji</span><br><span class="line">uid=1001(zhangwuji) gid=1002(mojiao) 组=1002(mojiao)</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户和组的相关文件"><a href="#用户和组的相关文件" class="headerlink" title="用户和组的相关文件"></a>用户和组的相关文件</h2><ul>
+<li>&#x2F;etc&#x2F;passwd : 用户的配置文件，记录用户的各种信息<ul>
+<li>用户名：口令：用户标识号：组标识号：注释行描述：主目录：登录Shell<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">codedog:x:1000:1000:codedog:/home/codedog:/bin/bash</span><br><span class="line">zhangwuji:x:1001:1002::/home/zhangwuji:/bin/bash</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>&#x2F;etc&#x2F;shadow ：口令的配置文件<ul>
+<li>登录名：加密口令：最后一次修改时间：最小时间间隔：最大时间间隔：警告时间：不活动时间：失效时间：标志<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root:\$6\$p0DNSN1yxRTSl2hy$Mybqoy60xMcEtbw5rBMMOTUkaiSVINPjejwXsFkJwCtcB.98FpOXrRtpMNrzooqVuN46SAmfRvmqOEqWzBK7Y0::0:99999:7:::</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>&#x2F;etc&#x2F;group ：组的配置文件，记录组的各种信息<ul>
+<li>组名：口令：组标识号：组内用户列表（组内用户列表是隐藏的）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wudang:x:1001:</span><br><span class="line">mojiao:x:1002:</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h1 id="Linux-实用指令"><a href="#Linux-实用指令" class="headerlink" title="Linux 实用指令"></a>Linux 实用指令</h1><h2 id="运行级别"><a href="#运行级别" class="headerlink" title="运行级别"></a>运行级别</h2><ol start="0">
+<li>关机</li>
+<li>单用户【找回丢失密码】</li>
+<li>多用户状态没有网络服务</li>
+<li>多用户状态有网络服务</li>
+<li>系统未使用保留给用户</li>
+<li>图形界面</li>
+<li>系统重启</li>
+</ol>
+<ul>
+<li><p>常用级别是 3 和 5，也可以指定级别</p>
+</li>
+<li><p>init 运行级别 ：切换运行级别</p>
+</li>
+<li><p>systemctl get-default ：查看当前运行级别</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">init 3  // 切换至运行级别 3</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="找回-root-密码"><a href="#找回-root-密码" class="headerlink" title="找回 root 密码"></a>找回 root 密码</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43635290/article/details/105112618">具体教程</a></li>
+</ul>
+<h2 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/MultiSkill/article/details/104187778">参考文档</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">man 命令</td>
+<td align="center">查看该命令的使用手册</td>
+</tr>
+<tr>
+<td align="center">info 命令</td>
+<td align="center">比 man 的信息更加的丰富</td>
+</tr>
+<tr>
+<td align="center">help 命令</td>
+<td align="center">查看 shell 内置的命令信息</td>
+</tr>
+<tr>
+<td align="center">命令 –help</td>
+<td align="center">查看 shell 外部的命令信息</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">man ls</span><br><span class="line">help cd   // cd 是内置指令</span><br><span class="line">ls --help // ls 是外部指令</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件目录命令"><a href="#文件目录命令" class="headerlink" title="文件目录命令"></a>文件目录命令</h2><ul>
+<li>绝对路径：从根目录开始</li>
+<li>相对路径：从当前路径开始</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">pwd</td>
+<td align="center">显示当前工作区的绝对路径</td>
+</tr>
+<tr>
+<td align="center">ls</td>
+<td align="center">显示当前文件夹下的目录</td>
+</tr>
+<tr>
+<td align="center">cd 路径</td>
+<td align="center">跳转至指定目录</td>
+</tr>
+<tr>
+<td align="center">mkdir 目录</td>
+<td align="center">创建目录</td>
+</tr>
+<tr>
+<td align="center">rmdir 目录</td>
+<td align="center">删除空目录</td>
+</tr>
+<tr>
+<td align="center">touch 文件名</td>
+<td align="center">创建空文件</td>
+</tr>
+<tr>
+<td align="center">cp 指定目录&#x2F;文件 目标目录</td>
+<td align="center">拷贝</td>
+</tr>
+<tr>
+<td align="center">rm 目录&#x2F;文件</td>
+<td align="center">移除</td>
+</tr>
+<tr>
+<td align="center">mv 目录&#x2F;文件 目录&#x2F;文件</td>
+<td align="center">移动&#x2F;重命名</td>
+</tr>
+<tr>
+<td align="center">cat 文件</td>
+<td align="center">查看文件内容</td>
+</tr>
+<tr>
+<td align="center">less 文件</td>
+<td align="center">分屏查看文件内容</td>
+</tr>
+<tr>
+<td align="center">echo 文件</td>
+<td align="center">输出内容到控制台</td>
+</tr>
+<tr>
+<td align="center">head 文件</td>
+<td align="center">显示文件首部部分内容（默认 10 行）</td>
+</tr>
+<tr>
+<td align="center">tail 文件</td>
+<td align="center">显示文件尾部部分内容（默认 10 行）</td>
+</tr>
+<tr>
+<td align="center">tail -f 文件</td>
+<td align="center">实时监听文件内容</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">重定向，修改内容输出的位置（覆盖）</td>
+</tr>
+<tr>
+<td align="center">&gt;&gt;</td>
+<td align="center">同上，追加</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">// 查看当前工作区绝对路径</span><br><span class="line">[root@localhost zhangwuji]# pwd</span><br><span class="line">/home/zhangwuji</span><br><span class="line">// 查看当前文件夹目录</span><br><span class="line">[root@localhost zhangwuji]# ls</span><br><span class="line">a.text</span><br><span class="line">// 跳转至指定目录</span><br><span class="line">[root@localhost ~]# cd /home/zhangwuji</span><br><span class="line">// 跳转至上一级</span><br><span class="line">[root@localhost zhangwuji]# cd ..</span><br><span class="line">// 跳转至根目录</span><br><span class="line">[root@localhost home]# cd ~</span><br><span class="line">// 创建一级目录</span><br><span class="line">[root@localhost ~]# mkdir /home/dog</span><br><span class="line">// 查看是否创建成功</span><br><span class="line">[root@localhost ~]# cd /home</span><br><span class="line">// 创建多级目录，需要加 -p</span><br><span class="line">[root@localhost home]# mkdir -p /home/animal/tiger</span><br><span class="line">// 删除 dog 文件夹</span><br><span class="line">[root@localhost home]# rmdir dog</span><br><span class="line">// 创建空文件</span><br><span class="line">[root@localhost codedog]# touch hello.txt</span><br><span class="line">// 将 codedog 下的 hello.txt 文件拷贝到 zhangwuji 中（单个文件）</span><br><span class="line">[root@localhost ~]# cp /home/codedog/hello.txt /home/zhangwuji</span><br><span class="line">// 将 codedog 下的 dir1 目录拷贝到 zhangwuji 中（整个目录和其子目录）</span><br><span class="line">[root@localhost zhangwuji]# cp -r /home/codedog/dir1 /home/zhangwuji</span><br><span class="line">// 移除 hello.txt</span><br><span class="line">[root@localhost home]# rm codedog/hello.txt</span><br><span class="line">rm：是否删除普通空文件 &#x27;codedog/hello.txt&#x27;？y</span><br><span class="line">// 强制删除整个目录（没有确认提示）</span><br><span class="line">[root@localhost ~]# rm -rf /home/codedog/dir1</span><br><span class="line">// 重命名</span><br><span class="line">[root@localhost codedog]# ls</span><br><span class="line">公共  模板  视频  图片  文档  下载  音乐  桌面  hello.text</span><br><span class="line">[root@localhost codedog]# mv hello.text new.text</span><br><span class="line">[root@localhost codedog]# ls</span><br><span class="line">公共  模板  视频  图片  文档  下载  音乐  桌面  new.text</span><br><span class="line">// 移动</span><br><span class="line">[root@localhost codedog]# mv new.text /home/zhangwuji</span><br><span class="line">[root@localhost codedog]# ls</span><br><span class="line">公共  模板  视频  图片  文档  下载  音乐  桌面</span><br><span class="line">[root@localhost codedog]# cd /home/zhangwuji</span><br><span class="line">[root@localhost zhangwuji]# ls</span><br><span class="line">a.text  dir1  dir3  hello.txt  new.text</span><br><span class="line">// 查看文件内容</span><br><span class="line">[root@localhost codedog]# cat hello.txt</span><br><span class="line">hello world</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 查看 home 文件夹的目录，原本应该是打印到控制台，但是使用重定向将其打印到文件中，而且是覆盖</span><br><span class="line">[root@localhost ~]# ls -l /home &gt; /home/codedog/hello.txt</span><br><span class="line">// 查看文件内容</span><br><span class="line">[root@localhost ~]# cat /home/codedog/hello.txt</span><br><span class="line">总用量 4</span><br><span class="line">drwx------. 15 codedog   codedog 4096 11月 19 04:03 codedog</span><br><span class="line">drwx------.  3 zhangwuji mojiao    18 11月 19 03:36 zhangwuji</span><br><span class="line">// 此处同上，但是是追加</span><br><span class="line">[root@localhost ~]# ls -l /home &gt;&gt; /home/codedog/hello.txt</span><br><span class="line">// 再次查看</span><br><span class="line">[root@localhost ~]# cat /home/codedog/hello.txt</span><br><span class="line">总用量 4</span><br><span class="line">drwx------. 15 codedog   codedog 4096 11月 19 04:03 codedog</span><br><span class="line">drwx------.  3 zhangwuji mojiao    18 11月 19 03:36 zhangwuji</span><br><span class="line">总用量 4</span><br><span class="line">drwx------. 15 codedog   codedog 4096 11月 19 04:03 codedog</span><br><span class="line">drwx------.  3 zhangwuji mojiao    18 11月 19 03:36 zhangwuji</span><br></pre></td></tr></table></figure>
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://codedog1024.github.io">CodeDog</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://codedog1024.github.io/2023/07/05/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">https://codedog1024.github.io/2023/07/05/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://codedog1024.github.io" target="_blank">CodeDog的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/bg9.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/07/05/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Git 学习笔记"><img class="cover" src="/img/bg3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Git 学习笔记</div></div></a></div><div class="next-post pull-right"><a href="/2023/06/27/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title=""><img class="cover" src="/img/bg5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">CodeDog</div><div class="author-info__description">键盘敲烂，月入过万</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">Linux 介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F"><span class="toc-number">2.</span> <span class="toc-text">Linux应用领域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-%E5%92%8C-Unix-%E5%8C%BA%E5%88%AB"><span class="toc-number">3.</span> <span class="toc-text">Linux 和 Unix 区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-VMware-%E5%92%8C-CentOS"><span class="toc-number">4.</span> <span class="toc-text">安装 VMware 和 CentOS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-number">5.</span> <span class="toc-text">网络连接的三种模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%8B%E9%9A%86"><span class="toc-number">6.</span> <span class="toc-text">虚拟机克隆</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%BF%AB%E7%85%A7"><span class="toc-number">7.</span> <span class="toc-text">虚拟机快照</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%81%E7%A7%BB%E5%92%8C%E5%88%A0%E9%99%A4"><span class="toc-number">8.</span> <span class="toc-text">虚拟机迁移和删除</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">9.</span> <span class="toc-text">Linux目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">9.1.</span> <span class="toc-text">基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9B%AE%E5%BD%95"><span class="toc-number">9.2.</span> <span class="toc-text">常用目录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86-Linux"><span class="toc-number">10.</span> <span class="toc-text">远程登陆 Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7-Xshell-Xftp"><span class="toc-number">10.1.</span> <span class="toc-text">远程连接工具 Xshell Xftp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">10.2.</span> <span class="toc-text">使用方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vi-%E5%92%8C-vim-%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">11.</span> <span class="toc-text">vi 和 vim 文本编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-number">11.1.</span> <span class="toc-text">三种模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">11.2.</span> <span class="toc-text">常用命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-%E7%94%A8%E6%88%B7%E5%91%BD%E4%BB%A4"><span class="toc-number">12.</span> <span class="toc-text">Linux 用户命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4-%E7%AE%A1%E7%90%86%E5%91%98%E6%A8%A1%E5%BC%8F%E4%B8%8B"><span class="toc-number">13.</span> <span class="toc-text">Linux 用户管理命令(管理员模式下)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-number">14.</span> <span class="toc-text">用户组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84%E7%9A%84%E7%9B%B8%E5%85%B3%E6%96%87%E4%BB%B6"><span class="toc-number">14.1.</span> <span class="toc-text">用户和组的相关文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-%E5%AE%9E%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">15.</span> <span class="toc-text">Linux 实用指令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%BA%A7%E5%88%AB"><span class="toc-number">15.1.</span> <span class="toc-text">运行级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%9B%9E-root-%E5%AF%86%E7%A0%81"><span class="toc-number">15.2.</span> <span class="toc-text">找回 root 密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4"><span class="toc-number">15.3.</span> <span class="toc-text">帮助命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%91%BD%E4%BB%A4"><span class="toc-number">15.4.</span> <span class="toc-text">文件目录命令</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/07/05/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Git 学习笔记"><img src="/img/bg3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git 学习笔记"/></a><div class="content"><a class="title" href="/2023/07/05/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Git 学习笔记">Git 学习笔记</a><time datetime="2023-07-04T16:00:00.000Z" title="发表于 2023-07-05 00:00:00">2023-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/05/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Linux 学习笔记"><img src="/img/bg9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 学习笔记"/></a><div class="content"><a class="title" href="/2023/07/05/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Linux 学习笔记">Linux 学习笔记</a><time datetime="2023-07-04T16:00:00.000Z" title="发表于 2023-07-05 00:00:00">2023-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/27/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="无题"><img src="/img/bg5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2023/06/27/Redis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="无题">无题</a><time datetime="2023-06-27T00:42:10.719Z" title="发表于 2023-06-27 08:42:10">2023-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/27/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="MySQL 学习笔记"><img src="/img/bg3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL 学习笔记"/></a><div class="content"><a class="title" href="/2023/06/27/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="MySQL 学习笔记">MySQL 学习笔记</a><time datetime="2023-06-26T16:00:00.000Z" title="发表于 2023-06-27 00:00:00">2023-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/15/MyBatis-Plus%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88%E6%96%B0%EF%BC%89/" title="MyBatis-Plus 代码生成器（新）"><img src="/img/bg3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MyBatis-Plus 代码生成器（新）"/></a><div class="content"><a class="title" href="/2023/06/15/MyBatis-Plus%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88%E6%96%B0%EF%BC%89/" title="MyBatis-Plus 代码生成器（新）">MyBatis-Plus 代码生成器（新）</a><time datetime="2023-06-14T16:00:00.000Z" title="发表于 2023-06-15 00:00:00">2023-06-15</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/bg9.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2023 By CodeDog</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简体</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
